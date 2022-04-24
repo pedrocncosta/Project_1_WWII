@@ -1,0 +1,21 @@
+ body {
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        padding: 0;
+        margin: 70;
+        height: 100vh;
+        background-image: url("../docs/assets/imgs/948950.jpg");
+      }
+
+      .game-intro {
+        text-align: center;
+      }
+
+      p {
+        color: black;
+        font-size: larger;
+      }

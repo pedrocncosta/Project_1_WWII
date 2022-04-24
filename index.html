@@ -1,13 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Hello World</h1>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <title>Battleship</title>
+    <link rel="stylesheet" href="style/style.css">
+  </head>
+  <body>
+    <div class="game-intro">
+      <img
+        src="./docs/assets/imgs/battleshipcycles-logo-ftr.png"
+        alt=""
+        class="logo-img"
+      />
+      <br />
+      <button id="start-button">StartGame</button>
+    </div>
+
+    <div id="game-board">
+      <canvas id="canvas" width="500" height="700"></canvas>
+    </div>
+
+    <div>
+      <p>Move Battleship: right and left arrow.</p>
+      <p>Shoot the u-Boats: down arrow.</p>
+      <img src="./docs/assets/imgs/" alt="" class="arrows-img" />
+    </div>
+
+    <script src="js/enemies.js"></script>
+    <script src="js/controls.js"></script>
+    <script src="js/component.js"></script>
+    <script src="js/main.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+  </body>
 </html>
