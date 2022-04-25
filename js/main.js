@@ -1,7 +1,3 @@
-
-
-
-
 class Game {
   constructor() {
     this.canvas = document.getElementById("canvas");
@@ -17,17 +13,10 @@ class Game {
     this.submarines = [];
     this.torpedos = [];
     this.frames = 0;
-
-
-     
   }
 
- 
-
-  
   start() {
-    
-    this.ship = new Player(this, 200, 95, 100, 50, );
+    this.ship = new Player(this, 200, 95, 100, 50);
     this.controls = new Controls(this);
     this.controls.keyboardEvents();
     this.intervalId = setInterval(() => {
@@ -43,7 +32,7 @@ class Game {
     this.ship.draw();
     this.createSubmarines();
     this.torpedos.forEach((enemy) => {
-      enemy.y++
+      enemy.y++;
 
       enemy.draw();
     });
@@ -53,7 +42,6 @@ class Game {
       enemy.draw();
     });
     this.checkGameOver();
-   
   }
 
   createSubmarines() {
@@ -63,7 +51,6 @@ class Game {
   }
 
   checkGameOver() {
-    
     const ship = this.ship;
     const crashed = this.submarines.some(function (enemy) {
       return ship.crashWith(enemy);

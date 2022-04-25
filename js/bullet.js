@@ -1,9 +1,9 @@
 class Bullet {
-  constructor(game,x ,y) {
+  constructor(game, x, y) {
     this.game = game;
     this.x = x;
     this.y = y;
-    this.width = 50;
+    this.width = 30;
     this.height = 30;
     this.img = new Image();
   }
@@ -24,7 +24,7 @@ class Bullet {
   }
 
   draw() {
-    this.img.src = "./docs/assets/imgs/soviet-submarine-s-56.png";
+    this.img.src = "../docs/assets/imgs/pngwing.com.png";
     this.game.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
   }
 }
