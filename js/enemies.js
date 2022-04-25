@@ -35,6 +35,5 @@ crashWith(obstacle) {
       this.right() < obstacle.left() ||
       this.left() > obstacle.right()
     );
-  }
-
-}
+  
+}}

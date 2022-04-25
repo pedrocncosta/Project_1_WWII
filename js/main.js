@@ -14,6 +14,7 @@ class Game {
     this.torpedos = [];
     this.frames = 0;
     this.score = 0;
+    this.timer = 5000;
   }
 
   start() {
@@ -22,27 +23,11 @@ class Game {
     this.controls.keyboardEvents();
     this.intervalId = setInterval(() => {
       this.update();
-    }, 1000 / 60);
-
-    let timer;
-    let timeleft = 60;
-    cancelInterval(timer);
-    $("#playAgainButton").show();
-
-    function updateTimer() {
-      timeLeft = timeLeft - 1;
-      if (timeLeft >= 0) $("#timer").html(timeLeft);
-      else {
-        checkGameOver();
-      }
-    }
-
-    timer = setInterval(updateTimer, 1000);
-    updateTimer();
-    $("#tryAgainButton").hide();
+    }, 10);
   }
 
   update() {
+    this.timer--;
     this.ctx.clearRect(0, 0, this.width, this.height);
     this.frames++;
     this.drawBackground();
@@ -61,6 +46,7 @@ class Game {
     });
     this.giveMePoints();
     this.checkGameOver();
+    this.drawTimer();
   }
 
   createSubmarines() {
@@ -75,6 +61,9 @@ class Game {
       return ship.crashWith(enemy);
     });
     if (crashed) {
+      this.stop();
+    }
+    if (this.timer <= 0) {
       this.stop();
     }
   }
@@ -109,5 +98,11 @@ class Game {
     this.ctx.font = "30px serif";
     this.ctx.fillStyle = "grey";
     this.ctx.fillText(`Score: ${this.score}`, 350, 30);
+  }
+
+  drawTimer() {
+    this.ctx.font = "30px serif";
+    this.ctx.fillStyle = "grey";
+    this.ctx.fillText(`Time: ${this.timer}`, 30, 30);
   }
 }
