@@ -1,3 +1,7 @@
+
+
+
+
 class Game {
   constructor() {
     this.canvas = document.getElementById("canvas");
@@ -8,15 +12,22 @@ class Game {
     this.width = 500;
     this.height = 700;
     this.intervalId = null;
-    this.car = null;
+    this.ship = null;
     this.controls = null;
-    this.enemies = [];
+    this.submarines = [];
+    this.torpedos = [];
     this.frames = 0;
+
+
+     
   }
 
-  //start
+ 
+
+  
   start() {
-    this.car = new Player(this, 200, 95, 100, 50);
+    
+    this.ship = new Player(this, 200, 95, 100, 50, );
     this.controls = new Controls(this);
     this.controls.keyboardEvents();
     this.intervalId = setInterval(() => {
@@ -29,26 +40,33 @@ class Game {
     this.frames++;
     this.drawBackground();
     this.drawScores();
-    this.car.draw();
-    this.createEnemies();
-    this.enemies.forEach((enemy) => {
+    this.ship.draw();
+    this.createSubmarines();
+    this.torpedos.forEach((enemy) => {
+      enemy.y++
+
+      enemy.draw();
+    });
+    this.submarines.forEach((enemy) => {
       enemy.x--;
 
       enemy.draw();
     });
     this.checkGameOver();
+   
   }
 
-  createEnemies() {
-    if (this.frames % 300 === 0) {
-      this.enemies.push(new Enemy(this));
+  createSubmarines() {
+    if (this.frames % 200 === 0) {
+      this.submarines.push(new Enemy(this));
     }
   }
 
   checkGameOver() {
-    const car = this.car;
-    const crashed = this.enemies.some(function (enemy) {
-      return car.crashWith(enemy);
+    
+    const ship = this.ship;
+    const crashed = this.submarines.some(function (enemy) {
+      return ship.crashWith(enemy);
     });
 
     if (crashed) {

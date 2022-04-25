@@ -1,21 +1,25 @@
 class Controls {
   constructor(game) {
     this.game = game;
-    this.car = this.game.car;
+    this.ship = this.game.ship;
   }
 
   keyboardEvents() {
     window.addEventListener("keydown", (e) => {
       switch (e.code) {
         case "ArrowRight":
-          if (this.car.x + this.car.width < 500) {
-            this.car.moveRight();
+          if (this.ship.x + this.ship.width < 500) {
+            this.ship.moveRight();
           }
           break;
         case "ArrowLeft":
-          if (this.car.x > 1) {
-            this.car.moveLeft();
+          if (this.ship.x > 1) {
+            this.ship.moveLeft();
           }
+          break;
+        case "ArrowDown":
+          this.ship.shoot();
+
           break;
       }
     });
