@@ -3,7 +3,7 @@ class Enemy {
     this.game = game;
     this.x = 500;
     this.y = 200 + Math.floor(Math.random() * 400);
-    this.width = 70;
+    this.width = 60;
     this.height = 30;
     this.img = new Image();
   }
@@ -27,4 +27,14 @@ class Enemy {
     this.img.src = "./docs/assets/imgs/mysubmarine.png";
     this.game.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
   }
+
+crashWith(obstacle) {
+    return !(
+      this.bottom() < obstacle.top() ||
+      this.top() > obstacle.bottom() ||
+      this.right() < obstacle.left() ||
+      this.left() > obstacle.right()
+    );
+  }
+
 }

@@ -16,7 +16,7 @@
         class="logo-img"
       />
       <br />
-      <button id="start-button">StartGame</button>
+      <button id="start-button">Start Battle</button>
     </div>
 
     <div id="game-board">
@@ -27,11 +27,14 @@
       <p>Move Battleship: right and left arrow.</p>
       <p>Shoot the u-Boats: down arrow.</p>
       <img src="./docs/assets/imgs/" alt="" class="arrows-img" />
+      <p>You have: <span id="timer">0</span> seconds remaining!</p>
+
+<button id="tryAgainButton" onclick="start()">Go!</button>
     </div>
 
     <script src="js/enemies.js"></script>
     <script src="js/controls.js"></script>
-    <script src="js/component.js"></script>
+    <script src="js/battleship.js"></script>
     <script src="js/main.js"></script>
      <script src="js/bullet.js"></script>
     <script type="text/javascript" src="js/index.js"></script>

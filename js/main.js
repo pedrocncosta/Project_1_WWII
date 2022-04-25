@@ -13,6 +13,7 @@ class Game {
     this.submarines = [];
     this.torpedos = [];
     this.frames = 0;
+    this.score = 0;
   }
 
   start() {
@@ -22,6 +23,23 @@ class Game {
     this.intervalId = setInterval(() => {
       this.update();
     }, 1000 / 60);
+
+    let timer;
+    let timeleft = 60;
+    cancelInterval(timer);
+    $("#playAgainButton").show();
+
+    function updateTimer() {
+      timeLeft = timeLeft - 1;
+      if (timeLeft >= 0) $("#timer").html(timeLeft);
+      else {
+        checkGameOver();
+      }
+    }
+
+    timer = setInterval(updateTimer, 1000);
+    updateTimer();
+    $("#tryAgainButton").hide();
   }
 
   update() {
@@ -41,6 +59,7 @@ class Game {
 
       enemy.draw();
     });
+    this.giveMePoints();
     this.checkGameOver();
   }
 
@@ -52,13 +71,23 @@ class Game {
 
   checkGameOver() {
     const ship = this.ship;
-    const crashed = this.submarines.some(function (enemy) {
+    const crashed = this.torpedos.some(function (enemy) {
       return ship.crashWith(enemy);
     });
-
     if (crashed) {
       this.stop();
     }
+  }
+
+  giveMePoints() {
+    this.submarines.forEach((submarine, index, arr) => {
+      this.torpedos.forEach((torpedo, i, a) => {
+        if (submarine.crashWith(torpedo)) {
+          arr.splice(index, 1);
+          this.score++;
+        }
+      });
+    });
   }
 
   stop() {
@@ -77,9 +106,8 @@ class Game {
   }
 
   drawScores() {
-    let score = Math.floor(this.frames / 60);
     this.ctx.font = "30px serif";
     this.ctx.fillStyle = "grey";
-    this.ctx.fillText(`Score: ${score}`, 400, 30);
+    this.ctx.fillText(`Score: ${this.score}`, 350, 30);
   }
 }

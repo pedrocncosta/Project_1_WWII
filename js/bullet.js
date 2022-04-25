@@ -27,4 +27,9 @@ class Bullet {
     this.img.src = "../docs/assets/imgs/pngwing.com.png";
     this.game.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
   }
+
+
+
+
+  
 }
