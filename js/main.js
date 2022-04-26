@@ -18,7 +18,7 @@ class Game {
   }
 
   start() {
-    this.ship = new Player(this, 200, 95, 100, 50);
+    this.ship = new Player(this, 200, 110, 90, 30);
     this.controls = new Controls(this);
     this.controls.keyboardEvents();
     this.intervalId = setInterval(() => {
@@ -72,6 +72,7 @@ class Game {
     this.submarines.forEach((submarine, index, arr) => {
       this.torpedos.forEach((torpedo, i, a) => {
         if (submarine.crashWith(torpedo)) {
+          a.splice(i, 1);
           arr.splice(index, 1);
           this.score++;
         }

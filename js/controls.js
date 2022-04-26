@@ -5,7 +5,7 @@ class Controls {
   }
 
   keyboardEvents() {
-    window.addEventListener("keydown", (e) => {
+    window.addEventListener("keyup", (e) => {
       switch (e.code) {
         case "ArrowRight":
           if (this.ship.x + this.ship.width < 500) {

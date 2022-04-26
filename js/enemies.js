@@ -4,7 +4,7 @@ class Enemy {
     this.x = 500;
     this.y = 200 + Math.floor(Math.random() * 400);
     this.width = 60;
-    this.height = 30;
+    this.height = 20;
     this.img = new Image();
   }
 
