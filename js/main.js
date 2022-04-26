@@ -5,16 +5,21 @@ class Game {
     this.background = new Image();
     this.x = 0;
     this.y = 0;
-    this.width = 500;
+    this.width = 700;
     this.height = 700;
     this.intervalId = null;
     this.ship = null;
     this.controls = null;
     this.submarines = [];
+    this.deepCharges = [];
     this.torpedos = [];
     this.frames = 0;
     this.score = 0;
-    this.timer = 5000;
+    this.timer = 90;
+    this.explosion = new Audio(
+      "../docs/assets/sounds/8d82b5_Halo_3_Wraith_Shot_Explosion_Only_Sound_Effect.mp3"
+    );
+    this.launchCharge = new Audio("../docs/assets/sounds/launcher.mp3");
   }
 
   start() {
@@ -23,18 +28,32 @@ class Game {
     this.controls.keyboardEvents();
     this.intervalId = setInterval(() => {
       this.update();
-    }, 10);
+    }, 1000 / 60);
   }
 
   update() {
-    this.timer--;
+    this.timer = 90 - Math.floor(this.frames / 60);
     this.ctx.clearRect(0, 0, this.width, this.height);
     this.frames++;
     this.drawBackground();
     this.drawScores();
     this.ship.draw();
     this.createSubmarines();
+    this.createTorpedos();
+
+    this.torpedos.forEach((torpedo, i, arr) => {
+      if (torpedo.y == this.ship.y + this.ship.height) {
+        arr.splice(i, 1);
+      }
+    });
+
     this.torpedos.forEach((enemy) => {
+      enemy.y--;
+
+      enemy.draw();
+    });
+
+    this.deepCharges.forEach((enemy) => {
       enemy.y++;
 
       enemy.draw();
@@ -55,23 +74,35 @@ class Game {
     }
   }
 
+  createTorpedos() {
+    if (this.frames % 200 === 0) {
+      this.submarines.forEach((submarine) => {
+        submarine.shoot();
+      });
+    }
+  }
+
   checkGameOver() {
     const ship = this.ship;
     const crashed = this.torpedos.some(function (enemy) {
       return ship.crashWith(enemy);
     });
     if (crashed) {
+      this.explosion.play();
+      alert("You have been shot!");
       this.stop();
     }
     if (this.timer <= 0) {
+      alert("Time is up!");
       this.stop();
     }
   }
 
   giveMePoints() {
     this.submarines.forEach((submarine, index, arr) => {
-      this.torpedos.forEach((torpedo, i, a) => {
-        if (submarine.crashWith(torpedo)) {
+      this.deepCharges.forEach((deepCharge, i, a) => {
+        if (submarine.crashWith(deepCharge)) {
+          this.explosion.play();
           a.splice(i, 1);
           arr.splice(index, 1);
           this.score++;
@@ -98,7 +129,7 @@ class Game {
   drawScores() {
     this.ctx.font = "30px serif";
     this.ctx.fillStyle = "grey";
-    this.ctx.fillText(`Score: ${this.score}`, 350, 30);
+    this.ctx.fillText(`Score: ${this.score}`, 560, 30);
   }
 
   drawTimer() {

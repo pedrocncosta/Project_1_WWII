@@ -1,7 +1,7 @@
 class Enemy {
   constructor(game) {
     this.game = game;
-    this.x = 500;
+    this.x = 700;
     this.y = 200 + Math.floor(Math.random() * 400);
     this.width = 60;
     this.height = 20;
@@ -23,17 +23,28 @@ class Enemy {
     return this.y + this.height;
   }
 
+  shoot() {
+    this.game.torpedos.push(
+      new Bullet(
+        this.game,
+        this.x + this.width / 2,
+        this.y,
+        "../docs/assets/imgs/torpedo.png"
+      )
+    );
+  }
+
   draw() {
     this.img.src = "./docs/assets/imgs/mysubmarine.png";
     this.game.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
   }
 
-crashWith(obstacle) {
+  crashWith(obstacle) {
     return !(
       this.bottom() < obstacle.top() ||
       this.top() > obstacle.bottom() ||
       this.right() < obstacle.left() ||
       this.left() > obstacle.right()
     );
-  
-}}
+  }
+}

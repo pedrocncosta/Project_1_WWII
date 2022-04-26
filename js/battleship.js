@@ -14,9 +14,15 @@ class Player {
   }
 
   shoot() {
-    this.game.torpedos.push(
-      new Bullet(this.game, this.x + this.width / 2, this.y + this.height)
+    this.game.deepCharges.push(
+      new Bullet(
+        this.game,
+        this.x + this.width / 2,
+        this.y + this.height,
+        "../docs/assets/imgs/Mine.png"
+      )
     );
+      
   }
   moveLeft() {
     this.x -= 10;

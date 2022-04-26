@@ -5,10 +5,10 @@ class Controls {
   }
 
   keyboardEvents() {
-    window.addEventListener("keyup", (e) => {
+    window.addEventListener("keydown", (e) => {
       switch (e.code) {
         case "ArrowRight":
-          if (this.ship.x + this.ship.width < 500) {
+          if (this.ship.x + this.ship.width < 700) {
             this.ship.moveRight();
           }
           break;
@@ -17,9 +17,14 @@ class Controls {
             this.ship.moveLeft();
           }
           break;
+      }
+    });
+    window.addEventListener("keyup", (e) => {
+      switch (e.code) {
         case "ArrowDown":
-          this.ship.shoot();
+          this.game.launchCharge.play();
 
+          this.ship.shoot();
           break;
       }
     });
