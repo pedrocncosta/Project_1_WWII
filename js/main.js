@@ -26,7 +26,7 @@ class Game {
   }
 
   start() {
-    this.ship = new Player(this, 200, 70, 90, 30);
+    this.ship = new Player(this, 200, 73, 90, 30);
 
     this.checkHighScore();
 
@@ -149,7 +149,7 @@ class Game {
   drawScores() {
     this.ctx.font = "30px serif";
     this.ctx.fillStyle = "grey";
-    this.ctx.fillText(`Score: ${this.score}`, 560, 30);
+    this.ctx.fillText(`Score: ${this.score}`, 620, 30);
   }
 
   drawTimer() {

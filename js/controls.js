@@ -8,7 +8,7 @@ class Controls {
     window.addEventListener("keydown", (e) => {
       switch (e.code) {
         case "ArrowRight":
-          if (this.ship.x + this.ship.width < 700) {
+          if (this.ship.x + this.ship.width < 740) {
             this.ship.moveRight();
           }
           break;
