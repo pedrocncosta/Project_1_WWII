@@ -5,8 +5,8 @@ class Game {
     this.background = new Image();
     this.x = 0;
     this.y = 0;
-    this.width = 700;
-    this.height = 700;
+    this.width = 740;
+    this.height = 520;
     this.intervalId = null;
     this.ship = null;
     this.controls = null;
@@ -26,7 +26,7 @@ class Game {
   }
 
   start() {
-    this.ship = new Player(this, 200, 110, 90, 30);
+    this.ship = new Player(this, 200, 70, 90, 30);
 
     this.checkHighScore();
 

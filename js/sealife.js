@@ -2,7 +2,7 @@ class Sealife {
   constructor(game) {
     this.game = game;
     this.x = 0;
-    this.y = 400 + Math.floor(Math.random() * 400);
+    this.y = 200 + Math.floor(Math.random() * 320);
     this.width = 40;
     this.height = 20;
     this.img = new Image();

@@ -2,19 +2,19 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
   padding: 0;
   margin: 70;
   height: 100vh;
-  background-image: url("../docs/assets/imgs/948950.jpg");
+  background-image: url("../docs/assets/imgs/gameboy.jpg");
 }
 
-.game-intro {
-  margin-bottom: 250px;
-  text-align: center;
-  font-style: oblique;
+div {
+  position: absolute;
+  margin-right: 130px;
+  margin-bottom: 30px;
 }
 
 p {
@@ -22,18 +22,35 @@ p {
   font-size: 25px;
 }
 button {
+  margin-bottom: 10px;
+  margin-right: 100px;
   border-style: hidden;
-  border-radius: 8px;
+  border-radius: 100px;
   color: white;
   background-color: grey;
-  font-size: 22px;
-  width: 100px;
-  height: 60px;
+  font-size: 18px;
+  width: 55px;
+  height: 55px;
 }
 canvas {
-  border-style:groove;
+  background-image: url("../docs/assets/imgs/BATTLESHIP.jpg");
+  background-size: cover;
+  margin-top: 170px;
+  margin-right: 50px;
 
+  border-radius: 5px;
   border-color: rgb(71, 45, 4);
-  
+
   border-width: 20px;
+}
+
+.highestScore {
+  border-style: groove;
+  border-width: 5px;
+  border-color: grey;
+  color: grey;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
 }

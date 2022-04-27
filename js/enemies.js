@@ -1,8 +1,8 @@
 class Enemy {
   constructor(game) {
     this.game = game;
-    this.x = 700;
-    this.y = 200 + Math.floor(Math.random() * 400);
+    this.x = 740;
+    this.y = 120 + Math.floor(Math.random() * 400);
     this.width = 60;
     this.height = 20;
     this.img = new Image();
