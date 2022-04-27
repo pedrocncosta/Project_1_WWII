@@ -31,7 +31,9 @@ button {
   height: 60px;
 }
 canvas {
-  border-width: 10px;
-  border-color: grey;
-  border-radius: 20px;
+  border-style:groove;
+
+  border-color: rgb(71, 45, 4);
+  
+  border-width: 20px;
 }

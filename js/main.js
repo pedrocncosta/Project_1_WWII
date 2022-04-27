@@ -10,11 +10,14 @@ class Game {
     this.intervalId = null;
     this.ship = null;
     this.controls = null;
+    this.myStore = null;
+    this.fish = [];
     this.submarines = [];
     this.deepCharges = [];
     this.torpedos = [];
     this.frames = 0;
     this.score = 0;
+    this.highestScore = 0;
     this.timer = 90;
     this.explosion = new Audio(
       "../docs/assets/sounds/8d82b5_Halo_3_Wraith_Shot_Explosion_Only_Sound_Effect.mp3"
@@ -24,6 +27,9 @@ class Game {
 
   start() {
     this.ship = new Player(this, 200, 110, 90, 30);
+
+    this.checkHighScore();
+
     this.controls = new Controls(this);
     this.controls.keyboardEvents();
     this.intervalId = setInterval(() => {
@@ -40,6 +46,9 @@ class Game {
     this.ship.draw();
     this.createSubmarines();
     this.createTorpedos();
+    this.createSealife();
+
+    this.createHighScore();
 
     this.torpedos.forEach((torpedo, i, arr) => {
       if (torpedo.y == this.ship.y + this.ship.height) {
@@ -63,9 +72,20 @@ class Game {
 
       enemy.draw();
     });
+    this.fish.forEach((enemy) => {
+      enemy.x++;
+
+      enemy.draw();
+    });
     this.giveMePoints();
     this.checkGameOver();
     this.drawTimer();
+  }
+
+  createSealife() {
+    if (this.frames % 500 === 0) {
+      this.fish.push(new Sealife(this));
+    }
   }
 
   createSubmarines() {
@@ -133,8 +153,31 @@ class Game {
   }
 
   drawTimer() {
-    this.ctx.font = "30px serif";
+    this.ctx.font = "30px Arial";
     this.ctx.fillStyle = "grey";
     this.ctx.fillText(`Time: ${this.timer}`, 30, 30);
+  }
+
+  createHighScore() {
+    this.ctx.font = "32px serif";
+    this.ctx.fillStyle = "white";
+
+    if (this.highestScore < this.score) {
+      this.highestScore = this.score;
+      localStorage.setItem("highestScore", this.highestScore);
+      document.getElementsByClassName(
+        "highestScore"
+      )[0].innerHTML = `Highest Score: ${this.highestScore}`;
+    }
+  }
+
+  checkHighScore() {
+    this.myStore = localStorage.getItem("highestScore");
+    if (this.myStore) {
+      this.highestScore = this.myStore;
+    }
+    document.getElementsByClassName(
+      "highestScore"
+    )[0].innerHTML = `Highest Score: ${this.highestScore}`;
   }
 }
