@@ -20,9 +20,9 @@ class Game {
     this.highestScore = 0;
     this.timer = 90;
     this.explosion = new Audio(
-      "docs/assets/sounds/8d82b5_Halo_3_Wraith_Shot_Explosion_Only_Sound_Effect.mp3"
+      "/docs/assets/sounds/8d82b5_Halo_3_Wraith_Shot_Explosion_Only_Sound_Effect.mp3"
     );
-    this.launchCharge = new Audio("docs/assets/sounds/launcher.mp3");
+    this.launchCharge = new Audio("/docs/assets/sounds/launcher.mp3");
   }
 
   start() {
@@ -97,7 +97,7 @@ class Game {
   createTorpedos() {
     if (this.frames % 200 === 0) {
       this.submarines.forEach((submarine) => {
-        submarine.shoot("docs/assets/imgs/torpedo.png");
+        submarine.shoot("/docs/assets/imgs/torpedo.png");
       });
     }
   }
@@ -136,7 +136,7 @@ class Game {
   }
 
   drawBackground() {
-    this.background.src = "docs/assets/imgs/blue-water.jpg";
+    this.background.src = "/docs/assets/imgs/blue-water.jpg";
     this.ctx.drawImage(
       this.background,
       this.x,

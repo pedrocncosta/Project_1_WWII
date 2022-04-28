@@ -9,7 +9,7 @@ class Player {
   }
 
   draw() {
-    this.img.src = "docs/assets/imgs/battleship.png";
+    this.img.src = "/docs/assets/imgs/battleship.png";
     this.game.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
   }
 
@@ -19,7 +19,7 @@ class Player {
         this.game,
         this.x + this.width / 2,
         this.y + this.height,
-        "docs/assets/imgs/Mine.png"
+        "/docs/assets/imgs/Mine.png"
       )
     );
       
