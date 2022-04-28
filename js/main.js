@@ -97,7 +97,7 @@ class Game {
   createTorpedos() {
     if (this.frames % 200 === 0) {
       this.submarines.forEach((submarine) => {
-        submarine.shoot();
+        submarine.shoot("../docs/assets/imgs/torpedo.png");
       });
     }
   }

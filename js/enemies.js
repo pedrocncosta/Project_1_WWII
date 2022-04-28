@@ -23,13 +23,13 @@ class Enemy {
     return this.y + this.height;
   }
 
-  shoot() {
+  shoot(source) {
     this.game.torpedos.push(
       new Bullet(
         this.game,
         this.x + this.width / 2,
         this.y,
-        "../docs/assets/imgs/torpedo.png"
+        source
       )
     );
   }
