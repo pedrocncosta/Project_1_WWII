@@ -4,13 +4,18 @@
 
 ## Introduction
 
-This Game is my first project. I did it in week 3 at Ironhack. The game consists in a sea battle. You have 90 seconds to shoot the submarines for points, but be aware of their torpedos ;).
+<p> This Game is my first project. I did it in week 3 at Ironhack. The game consists in a sea battle.</p>
+
+<p>You have 90 seconds to shoot the submarines for points, but be aware of their torpedos ;).</p>
 
 ## Setup
 
-If you’d like to view my project in your browser:
+<p>If you’d like to view my project in your browser:</p>
 
-git clone https://github.com/pedrocncosta/Project_1_WWII.git
-open index.html
+<p>git clone https://github.com/pedrocncosta/Project_1_WWII.git</p>
+<p>open index.html</p>
 
-enjoy ;)
+## Instructions
+
+<p>Use the left and right arrows to move and arrow down to shoot.</p>
+<p>enjoy ;)</p>
