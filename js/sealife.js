@@ -26,7 +26,7 @@ class Sealife {
   
 
   draw() {
-    this.img.src = "/docs/assets/imgs/shark.png";
+    this.img.src = "./docs/assets/imgs/shark.png";
     this.game.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
   }
 }
