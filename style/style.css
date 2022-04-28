@@ -45,7 +45,9 @@ canvas {
 }
 
 .highestScore {
-  border-style: groove;
+  margin: 5px;
+  padding: 5px;
+  border-style: dashed;
   border-width: 5px;
   border-color: grey;
   color: grey;

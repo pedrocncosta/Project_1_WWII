@@ -2,7 +2,7 @@ class Enemy {
   constructor(game) {
     this.game = game;
     this.x = 740;
-    this.y = 120 + Math.floor(Math.random() * 400);
+    this.y = 120 + Math.floor(Math.random() * 390);
     this.width = 60;
     this.height = 20;
     this.img = new Image();
