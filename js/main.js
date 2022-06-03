@@ -5,8 +5,8 @@ class Game {
     this.background = new Image();
     this.x = 0;
     this.y = 0;
-    this.width = 740;
-    this.height = 520;
+    this.width = 600;
+    this.height = 500;
     this.intervalId = null;
     this.ship = null;
     this.controls = null;
