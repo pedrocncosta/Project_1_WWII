@@ -12,7 +12,7 @@
 
 <p>If you’d like to view my project in your browser:</p>
 
-<p>git clone https://github.com/pedrocncosta/Project_1_WWII.git</p>
+<p>https://pedrocncosta.github.io/Project_1_WWII/</p>
 <p>open index.html</p>
 
 ## Instructions
