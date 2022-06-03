@@ -1,8 +1,8 @@
 class Enemy {
   constructor(game) {
     this.game = game;
-    this.x = 740;
-    this.y = 120 + Math.floor(Math.random() * 390);
+    this.x = 600;
+    this.y = 120 + Math.floor(Math.random() * 300);
     this.width = 60;
     this.height = 20;
     this.img = new Image();
@@ -25,12 +25,7 @@ class Enemy {
 
   shoot(source) {
     this.game.torpedos.push(
-      new Bullet(
-        this.game,
-        this.x + this.width / 2,
-        this.y,
-        source
-      )
+      new Bullet(this.game, this.x + this.width / 2, this.y, source)
     );
   }
 
