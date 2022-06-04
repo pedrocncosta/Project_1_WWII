@@ -149,7 +149,7 @@ class Game {
   drawScores() {
     this.ctx.font = "30px serif";
     this.ctx.fillStyle = "grey";
-    this.ctx.fillText(`Score: ${this.score}`, 620, 30);
+    this.ctx.fillText(`Score: ${this.score}`, 470, 30);
   }
 
   drawTimer() {
