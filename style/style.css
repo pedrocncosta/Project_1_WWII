@@ -4,35 +4,43 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  background-image: url("../docs/assets/imgs/gameboy.jpg");
+font-family:Verdana, Geneva, Tahoma, sans-serif;
+  background-image: url("../docs/assets/imgs/background.webp");
 }
 
 p {
   color: black;
   font-size: 25px;
 }
-button {
-  border-style: hidden;
-  border-radius: 100px;
-  color: white;
-  background-color: rgb(178, 176, 176);
-  font-size: 18px;
-  width: 200px;
-  height: 42px;
-  margin-top: 7%;
-  margin-right: 2%;
-  border-width: 5px;
-  border-style: solid;
-  border-color: black;
-  position: absolute;
+
+#game-board{
+  text-align: center;
+  box-sizing: content-box;
 }
+
 canvas {
+  border-width: 5px;
+  border-color: black;
+  border-style:inset;
+  border-radius: 100px;
   background-image: url("../docs/assets/imgs/BATTLESHIP.jpg");
   background-size: 100% 100%;
   border-radius: 40px;
-  margin-top: 32%;
-  margin-right: 20px;
+  margin-top: 15%;
+}
+
+button {
+  display: block;
+  width:100%;
+  border-style: hidden;
+  border-radius: 100px;
+  color: rgb(233, 229, 229);
+  background-color: rgb(33, 32, 32);
+  font-size: 1.5rem;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black;
+  padding: 1%;
 }
 
 .highestScore {
@@ -40,8 +48,8 @@ canvas {
   padding: 5px;
   border-style: dashed;
   border-width: 5px;
-  border-color: grey;
-  color: grey;
+  border-color: rgb(211, 208, 208);
+  color: rgb(211, 208, 208);
   position: absolute;
   left: 0px;
   top: 0px;

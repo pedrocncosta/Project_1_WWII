@@ -23,6 +23,18 @@ class Game {
       "./docs/assets/sounds/8d82b5_Halo_3_Wraith_Shot_Explosion_Only_Sound_Effect.mp3"
     );
     this.launchCharge = new Audio("./docs/assets/sounds/launcher.mp3");
+    const timeIsUp = new Image();
+    timeIsUp.addEventListener("load", () => {
+      this.timeIsUp = timeIsUp;
+    });
+
+    timeIsUp.src = "./docs/assets/imgs/timeIsUp.jpeg";
+    const sink = new Image();
+
+    sink.addEventListener("load", () => {
+      this.sink = sink;
+    });
+    sink.src = "./docs/assets/imgs/Sinking.jpg";
   }
 
   start() {
@@ -77,6 +89,7 @@ class Game {
 
       enemy.draw();
     });
+    this.takeMePoints();
     this.giveMePoints();
     this.checkGameOver();
     this.drawTimer();
@@ -109,11 +122,17 @@ class Game {
     });
     if (crashed) {
       this.explosion.play();
-      alert("You have been shot!");
+      this.ctx.drawImage(this.sink, this.x, this.y, this.width, this.height);
       this.stop();
     }
     if (this.timer <= 0) {
-      alert("Time is up!");
+      this.ctx.drawImage(
+        this.timeIsUp,
+        this.x,
+        this.y,
+        this.width,
+        this.height
+      );
       this.stop();
     }
   }
@@ -126,6 +145,18 @@ class Game {
           a.splice(i, 1);
           arr.splice(index, 1);
           this.score++;
+        }
+      });
+    });
+  }
+
+  takeMePoints() {
+    this.fish.forEach((fish, index, arr) => {
+      this.deepCharges.forEach((deepCharge, i, a) => {
+        if (fish.crashWith(deepCharge)) {
+          a.splice(i, 1);
+          arr.splice(index, 1);
+          this.score--;
         }
       });
     });

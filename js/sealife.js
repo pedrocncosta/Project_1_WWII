@@ -23,10 +23,17 @@ class Sealife {
     return this.y + this.height;
   }
 
-  
-
   draw() {
     this.img.src = "./docs/assets/imgs/shark.png";
     this.game.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+  }
+
+  crashWith(obstacle) {
+    return !(
+      this.bottom() < obstacle.top() ||
+      this.top() > obstacle.bottom() ||
+      this.right() < obstacle.left() ||
+      this.left() > obstacle.right()
+    );
   }
 }
